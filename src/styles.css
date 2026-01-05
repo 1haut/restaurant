@@ -5,3 +5,40 @@
   src: url("./assets/fonts/TrajanPro-Regular.woff");
 }
 
+:root {
+  --font-family: "Trajan Pro Regular", serif;
+  --color1: #001f3f;
+  --color2: #daa520;
+  --color3: #ffffff;
+  --color4: #b22222;
+  --dark-gray: #333333;
+  --light-gray: #f5f5f5;
+}
+
+body {
+    background-color: var(--color1);
+    color: var(--color3);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    
+}
+
+.navbar {
+    background-color: var(--color1);
+}
+
+.dropdown {
+    background-color: var(--color2);
+}
+
+.navbar {
+  background-color: var(--color1);
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > img {
+  padding: 0 3%;
+}
