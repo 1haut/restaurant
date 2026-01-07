@@ -1,7 +1,9 @@
-type ImageSourceProp = {
+type ImageSourceProps = {
     src: string;
+    className?: string
 }
 
-export default function HeaderIcon({src}: ImageSourceProp){
-    return (<img src={src} />)
+export default function HeaderIcon({src, className}: ImageSourceProps){
+    return (<img src={src} className={className}/>)
 }
+
