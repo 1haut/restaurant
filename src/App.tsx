@@ -1,23 +1,15 @@
 import './styles.css'
-import HeaderIcon from './components/HeaderIcon'
 import Footer from './components/Footer'
-import CompanyLogo from './assets/icons/placeholder-logo.svg'
-import HamburgerMenu from './assets/icons/hamburger-menu.svg'
-import { information } from './info'
+import Dropdown from './components/Dropdown'
+import Navbar from './components/Navbar'
 
 export default function App() {
   return (
     <>
-      <header className='navbar'>
-        <HeaderIcon src={CompanyLogo} />
-        <HeaderIcon src={HamburgerMenu} className='hamburger-menu' />
-      </header>
+      <Navbar />
       <hr />
-      <nav className='dropdown'>
-        <ul>
-          {information.navbarOptions.map((option) => <li>{option}</li>)}
-        </ul>
-      </nav>
+      <Dropdown />
+      <hr />
       <Footer />
     </>
   )

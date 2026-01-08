@@ -1,7 +1,4 @@
 export default function Copyright() {
-  return (
-    <div className="copyright">
-      // © {new Date().getFullYear()}, Havets Skatter //
-    </div>
-  );
+  const year = new Date().getFullYear();
+  return <div className="copyright">// © {year}, Havets Skatter //</div>;
 }

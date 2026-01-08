@@ -1,7 +1,9 @@
 import { information } from "../info";
+
 const addressGMaps = information.addressGoogleMaps;
 const addressEmail = information.email;
-const phoneNumber = "12345678".replaceAll(/(..)/g, "$1 ")
+const phoneNumber = "12345678".replaceAll(/(..)/g, "$1 ");
+const num = information.phone.toString().replaceAll(/(..)/g, "$1 ");
 
 export default function ContactInfo() {
   return (

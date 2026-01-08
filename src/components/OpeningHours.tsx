@@ -1,8 +1,10 @@
+import Headline from "./FooterSubHeadline";
+
 export default function Hours() {
   return (
     <>
       <div className="hours">
-        <h3 className="headline">Åpningstider</h3>
+        <Headline content="Åpningstider" className="headline" />
         <ul>
           <li>Mandag: 12-21</li>
           <li>Tirsdag: 12-21</li>

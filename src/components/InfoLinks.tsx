@@ -1,7 +1,9 @@
+import Headline from "./FooterSubHeadline";
+
 export default function InfoLinks() {
   return (
     <div className="links">
-      <h3>Linker</h3>
+      <Headline content="Linker" />
       <ul className="links-list">
         <li>Policy</li>
         <li>Katering</li>

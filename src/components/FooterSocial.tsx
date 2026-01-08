@@ -1,18 +1,17 @@
 import SocialMediaIcon from "./SocialMediaIcon";
-import FacebookIcon from "../assets/icons/facebook-icon.svg";
-import InstagramIcon from "../assets/icons/instagram-icon.svg";
-import TwitterIcon from "../assets/icons/twitter-icon.svg";
-import TiktokIcon from "../assets/icons/tiktok-icon.svg";
+import Headline from "./FooterSubHeadline";
+import { socialMediaLinksObject as socialLinks } from "../links";
+
 
 export default function FooterSocials() {
   return (
     <div className="socials">
-      <h3 className="call-to-action">Følg oss gjerne!</h3>
+      <Headline content="Følg oss gjerne!" className="call-to-action" />
       <div className="socials-container">
-        <SocialMediaIcon url="facebook.com" iconPath={FacebookIcon} />
-        <SocialMediaIcon url="instagram.com" iconPath={InstagramIcon} />
-        <SocialMediaIcon url="tiktok.com" iconPath={TiktokIcon} />
-        <SocialMediaIcon url="twitter.com" iconPath={TwitterIcon} />
+        <SocialMediaIcon url={socialLinks.facebook.url} iconPath={socialLinks.facebook.iconPath} />
+        <SocialMediaIcon url={socialLinks.instagram.url} iconPath={socialLinks.instagram.iconPath} />
+        <SocialMediaIcon url={socialLinks.tiktok.url} iconPath={socialLinks.tiktok.iconPath} />
+        <SocialMediaIcon url={socialLinks.twitter.url} iconPath={socialLinks.twitter.iconPath} />
       </div>
     </div>
   );
