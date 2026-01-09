@@ -13,6 +13,7 @@
   --color4: #b22222;
   --dark-gray: #333333;
   --light-gray: #f5f5f5;
+  --section-margin: 1.5rem;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
   font-family: var(--font-family);
   margin: 0;
   padding: 0;
+  min-width: 320px;
 }
 
 h1,
@@ -77,12 +79,62 @@ hr {
   height: 1px;
   background-color: var(--color3);
   margin: auto;
-  width: 50%;
+  width: 75%;
   border: none;
   text-align: center;
 }
 
+/* Review Section */
+
+.reviews {
+  text-align: center;
+  padding: 1rem;
+  margin: var(--section-margin) 0;
+  font-size: 1rem;
+}
+
+.review-headline {
+  margin: 2rem;
+}
+
+.reviews article {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  margin: 1.5rem;
+  padding: 2rem 40px 1rem;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;  
+}
+
+.review-name {
+  text-align: right;
+  font-weight: 600;
+}
+
+
+@media (min-width: 768px) {
+  .reviews {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .reviews h2 {
+    width: 100%;
+    font-size: 4rem;
+    margin: auto;
+    padding: 0 2rem;
+    line-height: 1;
+  }
+  .reviews article {
+    height: auto;
+    margin: 1.5rem;
+  }
+}
+
 /* Footer */
+
 footer {
   text-align: center;
 }
