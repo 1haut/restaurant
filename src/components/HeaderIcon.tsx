@@ -1,6 +1,6 @@
 type ImageSourceProps = {
     src: string;
-    className?: string
+    className?: string;
 }
 
 export default function HeaderIcon({src, className}: ImageSourceProps){
