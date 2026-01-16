@@ -204,9 +204,9 @@ footer {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
-  margin: var(--section-margin) 0;
+  margin: var(--section-margin);
 }
 
 form input,
@@ -221,16 +221,56 @@ form textarea {
 
 form button {
   background-color: var(--color2);
-  color: var(--color1);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-family: var(--font-family);
   font-size: 1rem;
-  cursor: pointer;
 }
 
-form button:hover {
+form button:disabled {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  cursor: not-allowed;
+}
+
+form button:not(:disabled) {
+  cursor: pointer;
+  color: var(--dark-gray);
+}
+
+form button:hover:not(:disabled) {
   background-color: var(--dark-gray);
   color: var(--color3);
+}
+
+/* Input Fields */
+
+.tel-field {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 80%;
+  min-width: 280px;
+}
+
+.tel-field label {
+  align-self: center;
+  width: 100%;
+  display: block;
+}
+
+.tel-field select {
+  padding: 0.5rem;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  min-width: 80px;
+  max-width: 160px;
+  width: 20%;
+}
+
+.tel-field input {
+  width: 60%;
 }

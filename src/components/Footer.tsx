@@ -1,7 +1,7 @@
 import Copyright from "./Copyright";
 import FooterSocials from "./FooterSocial";
 import InfoLinks from "./InfoLinks";
-import OpeningHours from "./OpeningHours"
+import OpeningHours from "./OpeningHours";
 import ContactInfo from "./ContactInfo";
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
     <>
       <footer>
         <div className="info">
-          <FooterSocials />
+          <FooterSocials headline="Følg oss gjerne!"/>
           <div className="container">
             <OpeningHours />
             <ContactInfo />

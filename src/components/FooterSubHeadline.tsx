@@ -1,8 +1,8 @@
 type Subheadline = {
-    content: string,
+    title: string,
     className?: string
 }
 
-export default function Headline({content, className}: Subheadline){
-    return (<h3 className={className}>{content}</h3>)
+export default function Headline({title, className}: Subheadline){
+    return (<h3 className={className}>{title}</h3>)
 }
