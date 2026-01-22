@@ -41,7 +41,13 @@ export const information = {
   navbarOptions: navbarOptions,
 };
 
-export const reviews = [
+interface ReviewObject {
+  id: number;
+  content: string;
+  name: string;
+}
+
+export const reviews: ReviewObject[] = [
   {
     id: 1,
     content:
@@ -61,3 +67,107 @@ export const reviews = [
     name: "Review 3",
   },
 ];
+
+const rawAboutText = `Fisk er dyr som lever under vann og puster med gjeller. Huden til de fleste fisk er dekket av små, harde skjell, og de er vekselvarme. Fisk lever enten i ferskvann eller saltvann. Det finnes mer enn 30 000 arter i hele verden.
+
+Fisk er veldig forskjellige i størrelse og utseende. Hvalhai er et eksempel på en stor fisk. Krystall kutling er en liten fisk som blir omtrent fem centimeter.`;
+
+export const descriptionText: String[] = rawAboutText
+  .split("\n")
+  .filter(p => p);
+
+export interface Dish {
+  id: number;
+  name: string;
+  description: string;
+  allergies: string[];
+  price: number;
+}
+
+export const menu = {
+  starters: [
+    {
+      id: 1,
+      name: "Blåskjell i hvitvinssaus",
+      description:
+        "Dampende blåskjell i en kremet hvitvinssaus, servert med ferskt brød",
+      price: 129,
+      allergies: ["bløtdyr", "melk", "hvete"],
+    },
+    {
+      id: 2,
+      name: "Røkt laks på rugbrød",
+      description:
+        "Fersk røkt laks på sprøtt rugbrød, servert med dill, sitron og kapers.",
+      price: 115,
+      allergies: ["fisk", "hvete"],
+    },
+    {
+      id: 3,
+      name: "Scampi med hvitløk og chili",
+      description:
+        "Grillet scampi i en blanding av hvitløk og chili, servert med lime og koriander.",
+      price: 139,
+      allergies: ["skalldyr"],
+    },
+  ],
+  mains: [
+    {
+      id: 1,
+      name: "Grillet laks med urtesmør",
+      description:
+        "Saftig grillet laks servert med potetpuré, asparges og en smørsaus med friske urter.",
+      price: 245,
+      allergies: ["fisk", "melk"],
+    },
+    {
+      id: 2,
+      name: "Hummer Thermidor",
+      description:
+        "Gratinerte hummerhaler med en kremet sopp- og sennepssaus, servert med grønnsaker og ris.",
+      price: 379,
+      allergies: ["skalldyr", "melk", "egg", "sennep"],
+    },
+    {
+      id: 3,
+      name: "Stekt torsk med ertepuré",
+      description:
+        "Panert torsk servert med smørdampede grønnsaker, ertepuré og mandelpoteter.",
+      price: 265,
+      allergies: ["fisk", "melk", "hvete"],
+    },
+    {
+      id: 4,
+      name: "Fiskesuppe med safran",
+      description:
+        "Kremet fiskesuppe med fersk torsk, laks, blåskjell og safran, servert med brød.",
+      price: 210,
+      allergies: ["fisk", "melk", "bløtdyr", "hvete"],
+    },
+  ],
+  desserts: [
+    {
+      id: 1,
+      name: "Sitronterte med marengs",
+      description: "Syrlig sitronterte med sprø bunn og fløyelsmyk marengs.",
+      price: 95,
+      allergies: ["egg", "hvete", "melk"],
+    },
+    {
+      id: 2,
+      name: "Sjokolademousse med havsalt",
+      description:
+        "Fyldig sjokolademousse toppet med et hint av havsalt og friske bær.",
+      price: 105,
+      allergies: ["melk", "egg"],
+    },
+    {
+      id: 3,
+      name: "Crème Brûlée med vanilje",
+      description:
+        "Klassisk crème brûlée med en knasende karamellisert topp og ekte vaniljesmak.",
+      price: 115,
+      allergies: ["egg", "melk"],
+    },
+  ],
+};
