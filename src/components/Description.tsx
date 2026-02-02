@@ -1,7 +1,13 @@
 import { descriptionText } from "../info";
 
 function Description() {
-  return descriptionText.map(text => <p>{text}</p>);
+  return (
+    <div className="about">
+      {descriptionText.map((text, index) => (
+        <p key={index}>{text}</p>
+      ))}
+    </div>
+  );
 }
 
-export default Description
+export default Description;

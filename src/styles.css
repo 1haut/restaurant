@@ -15,6 +15,7 @@
   --light-gray: #f5f5f5;
   --section-margin: 1.5rem;
   --gutter: 16px;
+  --menu-padding: 0.5rem;
 }
 
 body {
@@ -36,7 +37,6 @@ h6,
 p {
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 ul {
@@ -78,7 +78,7 @@ button {
 
 .dropdown-header {
   display: none;
-  width: calc(60vw - var(--gutter));
+  width: max(425px, 45%);
 }
 
 .dropdown-header li {
@@ -132,28 +132,80 @@ button:hover,
   height: 0;
 }
 
-/* About Section */
-.desc,
-.reviews {
-  text-align: center;
+/* Hero Section */
+
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background-image: url("../img/hero-img.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform: scale(1);
+  filter: brightness(100%);
+  transition: transform 0.75s ease;
 }
+
+.hero-container:hover::before {
+  filter: brightness(95%);
+  transform: scale(1.2);
+}
+
+.hero-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-text {
+  color: var(--color3);
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-width: 2px 0;
+  border-style: solid;
+  margin-bottom: 1rem;
+}
+
+/* About Section */
 
 .desc {
-  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+.desc .about {
+  font-size: 1rem;
+  margin: 0 1rem;
 }
 
-.desc > p {
-  padding: 1rem 10%;
+.about p {
+  margin-bottom: 1rem;
+}
+
+.desc img {
+  width: 80%;
 }
 
 .slogan {
   font-style: italic;
   font-weight: 600;
-  margin: 0.5rem 0 0 0;
+  padding: 1rem 1rem 0;
+  grid-column: 1 / span 2;
+  font-size: 1.5rem;
 }
 
 /* Review Section */
-
 .reviews {
   text-align: center;
   padding: 1rem;
@@ -196,8 +248,9 @@ footer {
   gap: 1rem;
 }
 
+.info .container,
 .info li {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .socials-container {
@@ -216,8 +269,18 @@ footer {
   padding: 0;
 }
 
+.contact {
+  padding: 0.5rem 0;
+}
+
 /* Media Queries */
-@media (min-width: 768px) {
+@media screen and (max-width: 576px) {
+  .hero-text {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .socials-container img {
     width: 3rem;
   }
@@ -238,7 +301,7 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   body {
     font-size: 1.75rem;
   }
@@ -337,15 +400,16 @@ form button:hover:not(:disabled) {
 }
 /* Menu Section */
 .course-container {
-  margin: 3rem 20%;
+  margin: 1rem 10% 2rem;
+  padding: var(--menu-padding);
+  background-color: var(--light-gray);
   color: var(--color4);
+  border-radius: 1px;
 }
 
 .heading-course,
 .menu-course {
   background-color: var(--light-gray);
-  border: 2px solid black;
-  border-radius: 10px;
 }
 
 .heading-course {
@@ -353,10 +417,13 @@ form button:hover:not(:disabled) {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 5px var(--color4);
+  border-style: double double none double;
 }
 
 .heading-course h2 {
-  padding: 0 5%;
+  font-size: 40px;
+  padding: 0.413rem 0 0 calc(1.5rem - 3px);
 }
 
 .heading-course .icon {
@@ -364,8 +431,64 @@ form button:hover:not(:disabled) {
   aspect-ratio: 1;
 }
 
-.menu-course {
-  height: 500px;
+.heading-name {
+  display: flex;
 }
 
+.heading-name svg {
+  display: block;
+  margin: auto;
+  fill: var(--color4);
+}
 
+.menu-course {
+  font-size: 1rem;
+  overflow-y: auto;
+  text-align: left;
+  padding: 0 1.5rem;
+  border: 5px var(--color4);
+  border-style: none double double double;
+}
+
+.dish-container {
+  margin: 1rem 0;
+  border-bottom: 1px solid var(--dark-gray);
+  padding-bottom: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: calc(left + 10px);
+  background-size: 100px;
+}
+
+.dish-container:last-child {
+  border-bottom: none;
+}
+
+.starters .dish-container {
+  background-image: url("./assets/icons/entree-placeholder.svg");
+}
+
+.mains .dish-container {
+  background-image: url("./assets//icons/main-dish-placeholder3.svg");
+}
+.desserts .dish-container {
+  background-image: url("./assets//icons/dessert-placeholder.svg");
+}
+
+.dish-top {
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dish-description {
+  font-style: italic;
+  margin: 0.25rem 5rem 0.5rem 0;
+}
+
+.dish-allergies {
+  font-size: 0.75rem;
+}
+
+.multi-select {
+  margin: 1rem 10%;
+}
