@@ -1,6 +1,6 @@
 function Slogan() {
     return (
-        <p className="slogan">"Femstjerners mat til trestjerners priser!"</p>
+        <p className="slogan">"Fem&shy;stjerners mat til tre&shy;stjerners priser!"</p>
     )
 }
 
