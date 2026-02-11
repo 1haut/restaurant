@@ -24,4 +24,6 @@ dist-ssr
 *.sw?
 
 #Personal
-throw.js
+throw.*s
+template.*sx
+old_files/
