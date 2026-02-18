@@ -1,21 +1,18 @@
-import { useState } from "react";
 import { allergiesOptions, type StateOption } from "../../info";
 import Select, { type MultiValue } from "react-select";
 
-export default function Filter() {
-  const [allergies, setAllergies] = useState<MultiValue<StateOption>>([]);
+type MenuFilterProps = {
+  onChange: (newValue: MultiValue<StateOption>) => void;
+};
 
-  function handleChange(newValue: MultiValue<StateOption>) {
-    setAllergies(newValue);
-  }
-
+export default function Filter({ onChange }: MenuFilterProps) {
   return (
     <Select
       name="allergies"
       placeholder="Velg..."
       options={allergiesOptions}
       isMulti
-      onChange={handleChange}
+      onChange={onChange}
       className="multi-select"
     />
   );

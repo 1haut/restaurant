@@ -1,22 +1,20 @@
 import CourseHeader from "./CourseHeader";
-import { menu } from "../../info";
 import CourseList from "./CourseList";
+import { type MenyType, coursesNames } from "../../info";
 
-export default function Course() {
+interface CourseProps {
+  menuDisplay: MenyType;
+}
+
+export default function Course({ menuDisplay }: CourseProps) {
   return (
     <section>
-      <div className="course-container starters">
-        <CourseHeader courseName="Forretter" />
-        <CourseList course={menu.starters} />
-      </div>
-      <div className="course-container mains">
-        <CourseHeader courseName="Hovedretter" />
-        <CourseList course={menu.mains} />
-      </div>
-      <div className="course-container desserts">
-        <CourseHeader courseName="Desserter" />
-        <CourseList course={menu.desserts} />
-      </div>
+      {coursesNames.map((course, idx) => (
+        <div key={idx} className={`course-container ${course.name}`}>
+          <CourseHeader courseName={course.nameNo} />
+          <CourseList course={Object.values(menuDisplay)[idx]} />
+        </div>
+      ))}
     </section>
   );
 }

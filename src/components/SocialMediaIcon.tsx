@@ -9,7 +9,7 @@ type IconProps = {
 
 export default function SocialMediaIcon({url, iconPath}: IconProps){
     return (
-        <a href={prefix + url} target="_blank">
+        <a href={prefix + url} target="_blank" rel="noreferrer">
             <img src={iconPath}></img>
         </a>
     )
