@@ -4,13 +4,14 @@ const prefix = information.urlPrefix
 
 type IconProps = {
     url: string,
-    iconPath: string
+    iconPath: string,
+    alt: string
 }
 
-export default function SocialMediaIcon({url, iconPath}: IconProps){
+export default function SocialMediaIcon({url, iconPath, alt}: IconProps){
     return (
         <a href={prefix + url} target="_blank" rel="noreferrer">
-            <img src={iconPath}></img>
+            <img alt={alt} src={iconPath} loading="lazy"></img>
         </a>
     )
 }
