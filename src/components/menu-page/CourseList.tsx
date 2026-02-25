@@ -2,7 +2,7 @@ import { type Dish } from "../../info";
 import DishItem from "./DishItem";
 
 interface CourseProps {
-  name?: string
+  name?: string;
   course: Dish[];
 }
 

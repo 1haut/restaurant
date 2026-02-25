@@ -9,7 +9,7 @@ export default function Filter({ onChange }: MenuFilterProps) {
   return (
     <Select
       name="allergies"
-      placeholder="Velg..."
+      placeholder="Velg allergier..."
       options={allergiesOptions}
       isMulti
       onChange={onChange}

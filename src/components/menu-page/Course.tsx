@@ -10,7 +10,11 @@ export default function Course({ menuDisplay }: CourseProps) {
   return (
     <section>
       {coursesNames.map((course, idx) => (
-        <div key={idx} className={`course-container ${course.name}`}>
+        <div
+          tabIndex={0}
+          key={idx}
+          className={`course-container ${course.name}`}
+        >
           <CourseHeader courseName={course.nameNo} />
           <CourseList course={Object.values(menuDisplay)[idx]} />
         </div>
