@@ -27,3 +27,5 @@ dist-ssr
 throw.*s
 template.*sx
 old_files/
+naso/
+src/routes.tsx

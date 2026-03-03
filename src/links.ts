@@ -3,7 +3,7 @@ import InstagramIcon from "./assets/icons/instagram-icon.svg";
 import TwitterIcon from "./assets/icons/twitter-icon.svg";
 import TiktokIcon from "./assets/icons/tiktok-icon.svg";
 
-const socialMediaLinksObject = {
+export const socialMedia = {
   facebook: {
     url: "facebook.com",
     iconPath: FacebookIcon,
@@ -21,5 +21,3 @@ const socialMediaLinksObject = {
     iconPath: TiktokIcon,
   },
 };
-
-export { socialMediaLinksObject };

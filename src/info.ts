@@ -1,51 +1,72 @@
+import { capitalize } from "./utils.ts";
+
+// Interfaces
 interface NavbarItem {
   id: number;
   content: string;
-  isButton: Boolean;
+  route?: string;
 }
-
-const navbarOptions: NavbarItem[] = [
-  {
-    id: 1,
-    content: "Om",
-    isButton: false,
-  },
-  {
-    id: 2,
-    content: "Kontakt",
-    isButton: false,
-  },
-  {
-    id: 3,
-    content: "Meny",
-    isButton: false,
-  },
-  {
-    id: 4,
-    content: "Catering",
-    isButton: false,
-  },
-  {
-    id: 5,
-    content: "Reserver bord!",
-    isButton: true,
-  },
-];
-
-export const information = {
-  urlPrefix: "https://www.",
-  email: "kontakt@havetsskatter.no",
-  phone: 12345678,
-  addressGoogleMaps:
-    "https://www.google.com/maps/place/0150+Oslo/@59.8927133,10.6739282,13z/data=!3m1!4b1!4m6!3m5!1s0x46416bb52938958f:0x451b9d4daaf1fb40!8m2!3d59.8852007!4d10.7202977!16s%2Fm%2F02tchmd?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D",
-  navbarOptions: navbarOptions,
-};
 
 interface ReviewObject {
   id: number;
   content: string;
   name: string;
 }
+
+export interface Dish {
+  id: number;
+  name: string;
+  description: string;
+  allergies: string[];
+  price: number;
+}
+
+export interface StateOption {
+  value: string;
+  label: string;
+}
+
+// Types
+export type MenyType = typeof menu;
+export type CoursesType = "starters" | "mains" | "desserts";
+
+const navbarOptions: NavbarItem[] = [
+  {
+    id: 1,
+    content: "Hjem",
+    route: "/",
+  },
+  {
+    id: 2,
+    content: "Kontakt",
+    route: "/contact",
+  },
+  {
+    id: 3,
+    content: "Meny",
+    route: "/menu",
+  },
+  {
+    id: 4,
+    content: "Catering",
+    route: "/contact",
+  },
+  {
+    id: 5,
+    content: "Reserver bord!",
+    route: "/booking",
+  },
+];
+
+export const urlPrefix = "https://www.";
+
+export const information = {
+  email: "kontakt@havetsskatter.no",
+  phone: 12345678,
+  addressGoogleMaps:
+    "https://www.google.com/maps/place/0150+Oslo/@59.8927133,10.6739282,13z/data=!3m1!4b1!4m6!3m5!1s0x46416bb52938958f:0x451b9d4daaf1fb40!8m2!3d59.8852007!4d10.7202977!16s%2Fm%2F02tchmd?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D",
+  navbarOptions: navbarOptions,
+};
 
 export const reviews: ReviewObject[] = [
   {
@@ -75,14 +96,6 @@ Fisk er veldig forskjellige i størrelse og utseende. Hvalhai er et eksempel på
 export const descriptionText: String[] = rawAboutText
   .split("\n")
   .filter(p => p);
-
-export interface Dish {
-  id: number;
-  name: string;
-  description: string;
-  allergies: string[];
-  price: number;
-}
 
 export const menu = {
   starters: [
@@ -171,3 +184,137 @@ export const menu = {
     },
   ],
 };
+
+export const allergiesList = (menu: MenyType): string[] => {
+  const allergiesNested = Object.values(menu).flatMap(course =>
+    course.flatMap((item: Dish) => item.allergies),
+  );
+
+  return Array.from(new Set(allergiesNested.flat(10)));
+};
+
+export const allergiesOptions: StateOption[] = allergiesList(menu).map(item => {
+  return {
+    value: item,
+    label: capitalize(item),
+  };
+});
+
+export function filterAllergies(
+  menu: MenyType,
+  allergies: readonly StateOption[],
+) {
+
+  const menuArray = Object.entries(menu).map(item => {
+    const [key, value] = item;
+
+    const kvArray: [string, Dish[]] = [
+      key as CoursesType,
+      value.filter(v =>
+        allergies.every(option => !v.allergies.includes(option.value)),
+      ),
+    ];
+
+    return kvArray;
+  });
+
+  const filteredMenu = Object.fromEntries(menuArray) as MenyType;
+
+  return filteredMenu;
+}
+
+export const dateFormatOptions = {
+  weekday: "short",
+  // year: "numeric",
+  month: "long",
+  day: "numeric",
+} as const;
+
+export const tables = [
+  {
+    label: "B1",
+    location: "window-row",
+    maxSeats: 4,
+  },
+  {
+    label: "B2",
+    location: "window-row",
+    maxSeats: 4,
+  },
+  {
+    label: "B3",
+    location: "window-row",
+    maxSeats: 4,
+  },
+  {
+    label: "B4",
+    location: "mid-row",
+    maxSeats: 4,
+  },
+  {
+    label: "B5",
+    location: "mid-row",
+    maxSeats: 4,
+  },
+  {
+    label: "B6",
+    location: "mid-row",
+    maxSeats: 4,
+  },
+  {
+    label: "T1",
+    location: "two-seater",
+    maxSeats: 2,
+  },
+  {
+    label: "T2",
+    location: "two-seater",
+    maxSeats: 2,
+  },
+  {
+    label: "T3",
+    location: "two-seater",
+    maxSeats: 2,
+  },
+  {
+    label: "T4",
+    location: "two-seater",
+    maxSeats: 2,
+  },
+  {
+    label: "T5",
+    location: "two-seater",
+    maxSeats: 2,
+  },
+  {
+    label: "T6",
+    location: "two-seater",
+    maxSeats: 2,
+  },
+  {
+    label: "B7",
+    location: "big-table",
+    maxSeats: 8,
+  },
+];
+
+export const coursesNames = [
+  { name: "starters", nameNo: "Forrrett" },
+  { name: "mains", nameNo: "Hovedrett" },
+  { name: "desserts", nameNo: "Dessert" },
+];
+
+export interface BookingDetails {
+  time: string;
+  date: Date;
+  people: number;
+  duration: number;
+  table: string;
+}
+
+export function toKebabCase(str: string): string {
+  return str
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[\s_]+/g, "-")
+    .toLowerCase();
+}
