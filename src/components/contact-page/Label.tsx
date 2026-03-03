@@ -3,6 +3,6 @@ type LabelProps = {
   content: string | number;
 };
 
-export default function Label({labelFor, content}: LabelProps) {
+export default function Label({ labelFor, content }: LabelProps) {
   return <label htmlFor={labelFor}>{content}</label>;
 }

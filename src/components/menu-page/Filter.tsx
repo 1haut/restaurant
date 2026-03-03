@@ -1,4 +1,6 @@
-import { allergiesOptions, type StateOption } from "../../info";
+import { getAllergiesOptions } from "../../utils/utils";
+import { menu } from "../../utils/constants";
+import type { StateOption } from "../../types/types";
 import Select, { type MultiValue } from "react-select";
 
 type MenuFilterProps = {
@@ -10,7 +12,7 @@ export default function Filter({ onChange }: MenuFilterProps) {
     <Select
       name="allergies"
       placeholder="Velg allergier..."
-      options={allergiesOptions}
+      options={getAllergiesOptions(menu)}
       isMulti
       onChange={onChange}
       className="multi-select"

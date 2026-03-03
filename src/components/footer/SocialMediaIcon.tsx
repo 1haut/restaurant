@@ -1,4 +1,5 @@
-import { urlPrefix } from "../../info";
+import { urlPrefix } from "../../utils/constants";
+
 type IconProps = {
   url: string;
   iconPath: string;

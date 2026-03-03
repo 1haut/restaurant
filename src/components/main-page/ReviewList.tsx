@@ -1,11 +1,9 @@
-import { reviews } from "../../info";
-// import ReviewHeadline from "./main-page/ReviewHeadline";
+import { reviews } from "../../utils/constants";
 import Review from "./Review";
 
-export default function Reviews() {
+export default function ReviewList() {
   return (
     <section className="reviews">
-      {/* <ReviewHeadline /> */}
       <h2 className="review-headline">Omtale</h2>
       <div className="reviews-container">
         {reviews.map(review => (

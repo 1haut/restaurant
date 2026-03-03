@@ -1,14 +1,12 @@
-import { descriptionText } from "../../info";
+import { aboutText } from "../../utils/constants";
+import { paragraphArrays } from "../../utils/utils";
 
-
-function Description() {
+export default function Description() {
   return (
     <div className="about">
-      {descriptionText.map((text, index) => (
+      {paragraphArrays(aboutText).map((text, index) => (
         <p key={index}>{text}</p>
       ))}
     </div>
   );
 }
-
-export default Description;

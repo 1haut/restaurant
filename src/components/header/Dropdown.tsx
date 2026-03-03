@@ -1,6 +1,6 @@
 import type { HTMLProps } from "react";
-import { information } from "../../info";
 import { Link } from "react-router";
+import { information } from "../../utils/constants";
 
 interface DropdownProps {
   tabbable: number;
@@ -16,13 +16,15 @@ export default function Dropdown({
       <ul>
         {information.navbarOptions.map(item =>
           item.route ? (
-            <Link tabIndex={tabbable} to={item.route} key={item.id}>
-              <li>{item.content}</li>
-            </Link>
+            <li key={item.id}>
+              <Link tabIndex={tabbable} to={item.route}>
+                {item.content}
+              </Link>
+            </li>
           ) : (
-            <a key={item.id}>
-              <li>{item.content}</li>
-            </a>
+            <li key={item.id}>
+              <a>{item.content}</a>
+            </li>
           ),
         )}
       </ul>

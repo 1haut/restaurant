@@ -1,0 +1,27 @@
+
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  /* aspect-ratio: 16/9;
+  width: 90%; */
+  height: 250px;
+  border-radius: 16px;
+  /* flex: 0 0 100%;
+  min-width: 0; */
+  /* padding-left: 1rem; */
+  margin: 0.5rem
+}
+
+@media screen and (min-width: 576px) {
+    .embla__slide {
+        height: 300px;
+    }
+}

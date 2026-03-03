@@ -2,14 +2,21 @@ import type { ChangeEvent } from "react";
 
 type MessageTextboxProps = {
   content: string;
-  rows?: number
+  name: string;
+  rows?: number;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
-export default function MessageTextbox({ content, rows = 5, onChange }: MessageTextboxProps) {
+export default function MessageTextbox({
+  content,
+  name,
+  rows = 5,
+  onChange,
+}: MessageTextboxProps) {
   return (
     <textarea
-      name="textContent"
+      name={name}
+      id={name}
       value={content}
       rows={rows}
       onChange={onChange}

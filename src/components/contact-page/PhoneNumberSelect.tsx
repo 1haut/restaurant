@@ -7,7 +7,7 @@ interface CountryCodeFormat {
   unicode: string;
   image: string;
   dial_code: string;
-  name_no: string
+  name_no: string;
 }
 
 type OptionsSelectProps = {
@@ -24,7 +24,12 @@ export default function PhoneNumberSelect({
   list,
 }: OptionsSelectProps) {
   return (
-    <select name={name} value={countryCode} onChange={onChange}>
+    <select
+      name={name}
+      value={countryCode}
+      onChange={onChange}
+      autoComplete="tel-country-code"
+    >
       {list.map(item => (
         <option key={item.code} value={item.dial_code}>
           ({item.dial_code}) {item.name_no}

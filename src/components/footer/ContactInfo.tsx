@@ -1,5 +1,4 @@
-import { information } from "../../info";
-
+import { information } from "../../utils/constants";
 
 export default function ContactInfo() {
   return (

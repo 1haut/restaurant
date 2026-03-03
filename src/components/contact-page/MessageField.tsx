@@ -1,6 +1,7 @@
 import type { ChangeEvent } from "react";
 import Label from "./Label";
 import MessageTextbox from "./MessageTextbox";
+import { toKebabCase } from "../../utils/utils";
 
 type MessageFieldProps = {
   name: string;
@@ -16,9 +17,9 @@ export default function MessageField({
   onChange,
 }: MessageFieldProps) {
   return (
-    <div className="input-field">
+    <div className={`input-field ${toKebabCase(name) + "-field"}`}>
       <Label labelFor={name} content={labelName} />
-      <MessageTextbox content={value} onChange={onChange}/>
+      <MessageTextbox content={value} name={name} onChange={onChange} />
     </div>
   );
 }

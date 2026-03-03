@@ -1,9 +1,9 @@
 import HeaderIcon from "./HeaderIcon";
 import Dropdown from "./Dropdown";
-import CompanyLogo from "../../assets/icons/placeholder-logo.svg";
 import HamburgerMenu from "../../assets/icons/hamburger-menu.svg";
 import MenuClose from "../../assets/icons/close-menu.svg";
 import { useState } from "react";
+import RestaurantLogo from "../../assets/img/logo.webp"
 
 export default function Navbar() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +15,6 @@ export default function Navbar() {
   function handleKeyDown(event: React.KeyboardEvent<HTMLImageElement>) {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      console.log(event);
       handleExpanded();
     }
   }
@@ -23,7 +22,7 @@ export default function Navbar() {
   return (
     <>
       <header className="navbar">
-        <HeaderIcon src={CompanyLogo} tabIndex={0} alt="Company logo." />
+        <HeaderIcon src={RestaurantLogo} tabIndex={0} alt="Company logo." />
         <Dropdown tabbable={0} className="dropdown-header" />
         <HeaderIcon
           src={isExpanded ? MenuClose : HamburgerMenu}
