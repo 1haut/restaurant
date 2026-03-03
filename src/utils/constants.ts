@@ -4,19 +4,18 @@ import type {
   Menu,
   Table,
   CourseNames,
-  DateFormatOptions,
   Review,
   SocialMedia,
 } from "../types/types";
 
-import FacebookIcon from "./assets/icons/facebook-icon.svg";
-import InstagramIcon from "./assets/icons/instagram-icon.svg";
-import TwitterIcon from "./assets/icons/twitter-icon.svg";
-import TiktokIcon from "./assets/icons/tiktok-icon.svg";
+import FacebookIcon from "../assets/icons/facebook-icon.svg";
+import InstagramIcon from "../assets/icons/instagram-icon.svg";
+import TwitterIcon from "../assets/icons/twitter-icon.svg";
+import TiktokIcon from "../assets/icons/tiktok-icon.svg";
 
 export const urlPrefix = "https://www.";
 
-export const dateFormatOptions: DateFormatOptions = {
+export const dateFormatOptions = {
   weekday: "short",
   // year: "numeric",
   month: "long",
@@ -304,6 +303,6 @@ export const socialMedia: SocialMedia = {
   },
 };
 
-export const rawAboutText: string = `Fisk er dyr som lever under vann og puster med gjeller. Huden til de fleste fisk er dekket av små, harde skjell, og de er vekselvarme. Fisk lever enten i ferskvann eller saltvann. Det finnes mer enn 30 000 arter i hele verden.
+export const aboutText: string = `Fisk er dyr som lever under vann og puster med gjeller. Huden til de fleste fisk er dekket av små, harde skjell, og de er vekselvarme. Fisk lever enten i ferskvann eller saltvann. Det finnes mer enn 30 000 arter i hele verden.
 
 Fisk er veldig forskjellige i størrelse og utseende. Hvalhai er et eksempel på en stor fisk. Krystall kutling er en liten fisk som blir omtrent fem centimeter.`;
