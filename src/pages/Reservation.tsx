@@ -8,7 +8,7 @@ import ConfirmationModal from "../components/reservation-page/ConfirmationModal.
 
 export default function Reservation() {
   const today = new Date();
-  const [confModal, setConfModal] = useState(true);
+  const [confModal, setConfModal] = useState(false);
   const [bookingDetails, setBookingDetails] = useState({
     time: "",
     date: today,

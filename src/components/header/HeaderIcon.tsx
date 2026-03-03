@@ -1,21 +1,18 @@
-import { type MouseEvent } from "react";
+import { type MouseEvent, type ComponentPropsWithoutRef } from "react";
 
 type ImageSourceProps = {
-  src: string;
   className?: string;
   onClick?: (event: MouseEvent<HTMLImageElement>) => void;
 };
 
 export default function HeaderIcon({
-  src,
   className,
   onClick,
   ...props
-}: ImageSourceProps & React.ImgHTMLAttributes<HTMLImageElement>) {
+}: ImageSourceProps & ComponentPropsWithoutRef<"img">) {
   return (
     <img
       loading="lazy"
-      src={src}
       className={className}
       onClick={onClick}
       {...props}

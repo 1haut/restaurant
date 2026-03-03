@@ -1,6 +1,6 @@
-import RestaurantLogo from "../../assets/img/test4.webp";
+import RestaurantLogo from "../../assets/img/logo.webp";
 
-export default function LogoTest() {
+export default function SectionLogo() {
   return (
     <section className="page-logo">
       <img className="page-logo-element" src={RestaurantLogo} loading="lazy" alt="Restaurantlogo"/>
