@@ -35,7 +35,7 @@ export default function MessageField({
       />
       {hasError && moved && (
         <p className="error-message">
-          <ErrorIcon height="1.5rem" fill="red" />
+          <ErrorIcon height="1.5rem" fill="#b22222" />
           {errorMessage}
         </p>
       )}
