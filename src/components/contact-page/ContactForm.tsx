@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import Input from "./Input";
 import MessageField from "./MessageField";
 import PhoneField from "./PhoneField";
+import "./ContactForm.css";
 
 export default function ContactForm() {
   const initialState = {
@@ -50,12 +51,7 @@ export default function ContactForm() {
     event?.preventDefault();
     logInputs();
     resetFields();
-    // const form = event.currentTarget;
-    // const formData = new FormData(form);
-    // const formObject = Object.fromEntries(formData.entries());
 
-    // console.log(formObject);
-    //
   }
 
   function resetFields() {
@@ -75,6 +71,8 @@ export default function ContactForm() {
         value={formInformation.name}
         onChange={handleChange}
         autoComplete="name"
+        hasError={Boolean(error.name)}
+        errorMessage={error.name}
       />
       <Input
         type="email"
@@ -83,6 +81,8 @@ export default function ContactForm() {
         value={formInformation.email}
         onChange={handleChange}
         autoComplete="email"
+        hasError={Boolean(error.email)}
+        errorMessage={error.email}
       />
       <PhoneField
         labelContent="Telefonnummer"
@@ -113,6 +113,8 @@ export default function ContactForm() {
         labelName="Melding*"
         value={formInformation.textContent}
         onChange={handleChange}
+        hasError={Boolean(error.content)}
+        errorMessage={error.content}
       />
       <button disabled={!isValid}>Send!</button>
     </form>

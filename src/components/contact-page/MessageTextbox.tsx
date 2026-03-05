@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, ComponentPropsWithoutRef } from "react";
 
 type MessageTextboxProps = {
   content: string;
@@ -12,7 +12,8 @@ export default function MessageTextbox({
   name,
   rows = 5,
   onChange,
-}: MessageTextboxProps) {
+  ...props
+}: MessageTextboxProps & ComponentPropsWithoutRef<"textarea">) {
   return (
     <textarea
       name={name}
@@ -20,6 +21,7 @@ export default function MessageTextbox({
       value={content}
       rows={rows}
       onChange={onChange}
+      {...props}
     />
   );
 }

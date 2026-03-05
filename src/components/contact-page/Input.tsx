@@ -1,6 +1,7 @@
-import type { ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import InputTextbox from "./InputTextbox";
 import Label from "./Label";
+import ErrorIcon from "./ErrorIcon";
 
 type InputProps = {
   type: string;
@@ -8,6 +9,8 @@ type InputProps = {
   value: string;
   label: string;
   autoComplete: string;
+  hasError: boolean;
+  errorMessage: string | null;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -16,9 +19,13 @@ export default function Input({
   name,
   value,
   label,
+  hasError,
+  errorMessage,
   autoComplete,
   onChange,
 }: InputProps) {
+  const [moved, setMoved] = useState(false);
+
   return (
     <div className={`input-field ${name + "-field"}`}>
       <Label labelFor={name} content={label} />
@@ -29,7 +36,15 @@ export default function Input({
         value={value}
         autoComplete={autoComplete}
         onChange={onChange}
+        onBlur={() => setMoved(true)}
+        className={hasError && moved ? "error" : ""}
       />
+      {hasError && moved && (
+        <p className="error-message">
+          <ErrorIcon height="1.5rem" fill="red" />
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 }

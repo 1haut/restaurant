@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, ComponentPropsWithoutRef } from "react";
 
 type InputTextboxProps = {
   type: string;
@@ -7,7 +7,6 @@ type InputTextboxProps = {
   value: string;
   autoComplete: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
 };
 
 export default function InputTextbox({
@@ -17,7 +16,8 @@ export default function InputTextbox({
   value,
   autoComplete,
   onChange,
-}: InputTextboxProps) {
+  ...props
+}: InputTextboxProps & ComponentPropsWithoutRef<"input">) {
   return (
     <input
       type={type}
@@ -26,6 +26,7 @@ export default function InputTextbox({
       id={id}
       value={value}
       onChange={onChange}
+      {...props}
     />
   );
 }
