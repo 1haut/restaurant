@@ -4,7 +4,8 @@ import Footer from "../components/footer/Footer.tsx";
 import Navbar from "../components/header/Navbar.tsx";
 import ReservationOptions from "../components/reservation-page/ReservationOptions.tsx";
 import ConfirmationModal from "../components/reservation-page/ConfirmationModal.tsx";
-
+import "./Reservation.css"
+import { weekdayIndexMondayBased } from "../utils/utils.ts";
 
 export default function Reservation() {
   const today = new Date();
@@ -26,7 +27,11 @@ export default function Reservation() {
 
   return (
     <>
-      <ConfirmationModal stateModal={confModal} toggleModal={setConfModal} />
+      <ConfirmationModal
+        stateModal={confModal}
+        toggleModal={setConfModal}
+        bookingDetails={bookingDetails}
+      />
       <Navbar />
       <main className="reservation">
         <ReservationOptions
@@ -35,13 +40,13 @@ export default function Reservation() {
         />
       </main>
       <button
+        disabled={weekdayIndexMondayBased(bookingDetails.date) === 6}
         type="submit"
         className="confirm-booking"
         onClick={() => setConfModal(true)}
       >
         Bekreft bestilling!
       </button>
-
       <Footer />
     </>
   );

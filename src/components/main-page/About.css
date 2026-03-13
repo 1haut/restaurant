@@ -1,0 +1,58 @@
+/* About Section */
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.desc .about {
+  font-size: 1rem;
+  margin: 0 1rem;
+}
+
+.about .slogan {
+  margin-bottom: 1rem;
+}
+
+.desc img {
+  width: 160px;
+}
+
+.slogan {
+  font-style: italic;
+  font-weight: 600;
+  padding: 1rem;
+  grid-column: 1 / span 2;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .desc {
+    height: 350px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .desc .about {
+    font-size: 1.25rem;
+    margin: 0 2rem;
+  }
+
+  .slogan {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+
+  .desc img {
+    width: 8rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .desc {
+    grid-template-columns: 3fr 1fr;
+  }
+}

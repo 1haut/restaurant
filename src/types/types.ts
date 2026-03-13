@@ -43,7 +43,7 @@ export interface BookingDetails {
 
 export interface Table {
   label: string;
-  location: "window-row" | "mid-row" | "two-seater" | "big-table";
+  location: "window-row" | "mid-row" | "two-seater" | "big-table" | "";
   maxSeats: number;
 }
 

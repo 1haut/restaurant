@@ -1,4 +1,5 @@
 import RestaurantLogo from "../../assets/img/logo.webp";
+import "./SectionLogo.css"
 
 export default function SectionLogo() {
   return (

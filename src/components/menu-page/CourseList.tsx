@@ -1,4 +1,3 @@
-// import { type Dish } from "../../info";
 import type { Dish } from "../../types/types";
 import DishItem from "./DishItem";
 

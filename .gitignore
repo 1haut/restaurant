@@ -23,9 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-#Personal
+# Personal
+New*.tsx
 throw.*s
 template.*sx
 old_files/
 naso/
 src/routes.tsx
+src/TestBtn.tsx

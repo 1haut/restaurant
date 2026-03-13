@@ -3,6 +3,7 @@ import InfoLinks from "./InfoLinks";
 import OpeningHours from "./OpeningHours";
 import ContactInfo from "./ContactInfo";
 import FooterSocials from "./FooterSocial.tsx";
+import "./Footer.css";
 
 export default function Footer() {
   return (

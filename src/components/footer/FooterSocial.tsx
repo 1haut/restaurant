@@ -4,7 +4,7 @@ import { socialMedia } from "../../utils/constants";
 
 export default function FooterSocials() {
   return (
-    <div className="socials-container">
+    <nav className="socials-container">
       {Object.entries(socialMedia).map(([platform, item]) => (
         <SocialMediaIcon
           key={platform}
@@ -13,6 +13,6 @@ export default function FooterSocials() {
           iconPath={item.iconPath}
         />
       ))}
-    </div>
+    </nav>
   );
 }

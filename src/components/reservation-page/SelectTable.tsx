@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
-import type { BookingDetails } from "../../types/types";
+import type { BookingDetails, Table } from "../../types/types";
 import { tables } from "../../utils/constants";
 
 interface SelectTableProps {
   people: number;
   onPick: (data: Partial<BookingDetails>) => void;
 }
-
-type TableType = {
-  label: string;
-  location: string;
-  maxSeats: number;
-};
 
 
 export default function SelectTable({ people, onPick }: SelectTableProps) {
@@ -27,15 +21,15 @@ export default function SelectTable({ people, onPick }: SelectTableProps) {
     }
   }
 
-  const initialTableState: TableType = {
+  const initialTableState: Table = {
     label: "",
     location: "",
     maxSeats: 1,
   };
 
-  const [tabl, setTabl] = useState<TableType>(initialTableState);
+  const [tabl, setTabl] = useState<Table>(initialTableState);
 
-  function handleClick2(t: TableType) {
+  function handleClick2(t: Table) {
     if (t.label === selectedTable) {
       onPick({ table: "" });
       setTabl(initialTableState);
@@ -61,7 +55,6 @@ export default function SelectTable({ people, onPick }: SelectTableProps) {
         >
           <button
             className={`selection-area ${tableItem.label.toLowerCase()} ${selectedTable === tableItem.label ? "selected-table" : ""} `}
-            // disabled={people > tableItem.maxSeats}
             onClick={() => {
               (handleClick(tableItem.label), handleClick2(tableItem));
             }}

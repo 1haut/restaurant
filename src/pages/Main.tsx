@@ -4,6 +4,7 @@ import Navbar from "../components/header/Navbar.tsx";
 import ReviewList from "../components/main-page/ReviewList.tsx";
 import SectionLogo from "../components/main-page/SectionLogo.tsx";
 import Carousel from "../components/main-page/Carousel.tsx";
+import Nudge from "../components/main-page/Nudge.tsx";
 
 export default function Main() {
   return (
@@ -17,6 +18,8 @@ export default function Main() {
         <About />
         <hr />
         <ReviewList />
+        <hr />
+        <Nudge />
       </main>
       <hr />
       <Footer />

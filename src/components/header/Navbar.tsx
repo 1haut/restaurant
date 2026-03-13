@@ -24,7 +24,7 @@ export default function Navbar() {
     <>
       <header className="navbar">
         <HeaderIcon src={RestaurantLogo} tabIndex={0} alt="Company logo." />
-        <Dropdown tabbable={0} className="dropdown-header" />
+        <Dropdown tabbable={0} className="dropdown-header" aria-hidden={isExpanded}/>
         <HeaderIcon
           src={isExpanded ? MenuClose : HamburgerMenu}
           className="hamburger-menu"
@@ -43,6 +43,7 @@ export default function Navbar() {
         role="menu"
         tabbable={isExpanded ? 0 : -1}
         className={`dropdown ${isExpanded ? "open" : "closed"}`}
+        aria-hidden={!isExpanded}
       />
     </>
   );

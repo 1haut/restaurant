@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useNavigate } from "react-router";
 import Input from "./Input";
 import MessageField from "./MessageField";
 import PhoneField from "./PhoneField";
@@ -6,6 +7,7 @@ import "./ContactForm.css";
 
 export default function ContactForm() {
   const initialState = {
+    id: "",
     name: "",
     email: "",
     countryCode: "+47",
@@ -14,20 +16,23 @@ export default function ContactForm() {
     textContent: "",
   };
 
-  const [formInformation, setFormInformation] = useState(initialState);
 
+  const navigate = useNavigate();
+  const [isSent, setSent] = useState(false);
+  const [formInformation, setFormInformation] = useState(initialState);
+  
+  // Error validation
   const error = {
     name: formInformation.name.length != 0 ? null : "Navn kan ikke være tomt.",
     email:
       formInformation.email.includes("@") && formInformation.email.includes(".")
         ? null
-        : "Vennligst bruk en gyldig epostaddresse.",
+        : "Vennligst bruk en gyldig epostadresse.",
     content:
       formInformation.textContent.length != 0
         ? null
         : "Melding kan ikke være tomt.",
   };
-
   const isValid: boolean = !error.name && !error.email && !error.content;
 
   function handleChange(
@@ -37,12 +42,12 @@ export default function ContactForm() {
   ) {
     const { name, value } = event.target;
 
-    const change = {
+    const changedInfo = {
       [name]: value,
     };
 
     setFormInformation(prev => {
-      let updatedInfo = { ...prev, ...change };
+      let updatedInfo = { ...prev, id: crypto.randomUUID(), ...changedInfo };
       return updatedInfo;
     });
   }
@@ -51,7 +56,10 @@ export default function ContactForm() {
     event?.preventDefault();
     logInputs();
     resetFields();
-
+    setSent(!isSent);
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   }
 
   function resetFields() {
@@ -63,60 +71,68 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        name="name"
-        label="Navn*"
-        value={formInformation.name}
-        onChange={handleChange}
-        autoComplete="name"
-        hasError={Boolean(error.name)}
-        errorMessage={error.name}
-      />
-      <Input
-        type="email"
-        name="email"
-        label="Epost*"
-        value={formInformation.email}
-        onChange={handleChange}
-        autoComplete="email"
-        hasError={Boolean(error.email)}
-        errorMessage={error.email}
-      />
-      <PhoneField
-        labelContent="Telefonnummer"
-        name="countryCode"
-        inputBoxName="phoneNumber"
-        countryCode={formInformation.countryCode}
-        phoneNumber={formInformation.phoneNumber}
-        onChange={handleChange}
-        autoComplete="tel"
-      />
-      <div className="input-field category-field">
-        <label htmlFor="select-category">Emne</label>
-        <select
-          name="category"
-          id="select-category"
-          value={formInformation.category}
-          onChange={handleChange}
-          autoComplete="off"
-        >
-          <option value="">---Velg emne:---</option>
-          <option value="request">Forespørsel</option>
-          <option value="contact">Kontakt</option>
-          <option value="catering">Catering</option>
-        </select>
-      </div>
-      <MessageField
-        name="textContent"
-        labelName="Melding*"
-        value={formInformation.textContent}
-        onChange={handleChange}
-        hasError={Boolean(error.content)}
-        errorMessage={error.content}
-      />
-      <button disabled={!isValid}>Send!</button>
-    </form>
+    <>
+      {isSent ? (
+        <h1 style={{ display: "block", margin: "auto" }}>
+          Sendt! Omdirigerer til forsiden...
+        </h1>
+      ) : (
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            name="name"
+            label="Navn*"
+            value={formInformation.name}
+            onChange={handleChange}
+            autoComplete="name"
+            hasError={Boolean(error.name)}
+            errorMessage={error.name}
+          />
+          <Input
+            type="email"
+            name="email"
+            label="Epost*"
+            value={formInformation.email}
+            onChange={handleChange}
+            autoComplete="email"
+            hasError={Boolean(error.email)}
+            errorMessage={error.email}
+          />
+          <PhoneField
+            labelContent="Telefonnummer"
+            name="countryCode"
+            inputBoxName="phoneNumber"
+            countryCode={formInformation.countryCode}
+            phoneNumber={formInformation.phoneNumber}
+            onChange={handleChange}
+            autoComplete="tel"
+          />
+          <div className="input-field category-field">
+            <label htmlFor="select-category">Emne</label>
+            <select
+              name="category"
+              id="select-category"
+              value={formInformation.category}
+              onChange={handleChange}
+              autoComplete="off"
+            >
+              <option value="">---Velg emne:---</option>
+              <option value="request">Forespørsel</option>
+              <option value="contact">Kontakt</option>
+              <option value="catering">Catering</option>
+            </select>
+          </div>
+          <MessageField
+            name="textContent"
+            labelName="Melding*"
+            value={formInformation.textContent}
+            onChange={handleChange}
+            hasError={Boolean(error.content)}
+            errorMessage={error.content}
+          />
+          <button disabled={!isValid}>Send!</button>
+        </form>
+      )}
+    </>
   );
 }

@@ -13,26 +13,28 @@ export default function Carousel() {
   ]);
 
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          <img
-            src={Image1}
-            className="embla__slide"
-            alt="Et trebrett med sjømat som blekksprut og hummer"
-          />
-          <img
-            src={Image2}
-            className="embla__slide"
-            alt="Kasserolle med østersgryte"
-          />
-          <img
-            src={Image3}
-            className="embla__slide"
-            alt="Oransje og hvit fisk liggende på svart småstein"
-          />
+    <section id="carousel">
+      <div className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            <img
+              src={Image1}
+              className="embla__slide"
+              alt="Et trebrett med sjømat som blekksprut og hummer"
+            />
+            <img
+              src={Image2}
+              className="embla__slide"
+              alt="Kasserolle med østersgryte"
+            />
+            <img
+              src={Image3}
+              className="embla__slide"
+              alt="Oransje og hvit fisk liggende på svart småstein"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

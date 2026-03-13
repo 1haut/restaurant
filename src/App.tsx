@@ -1,6 +1,8 @@
+import NewConP from "./components/contact-page/NewConP";
 import Contact from "./pages/Contact";
 import Main from "./pages/Main";
 import Menu from "./pages/Menu";
+import Order from "./pages/Order";
 import Reservation from "./pages/Reservation";
 import "./styles.css";
 import { BrowserRouter, Route, Routes } from "react-router";
@@ -14,6 +16,8 @@ export default function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Reservation />} />
+          <Route path="/test" element={<NewConP />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </BrowserRouter>
     </>

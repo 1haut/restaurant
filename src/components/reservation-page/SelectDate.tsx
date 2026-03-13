@@ -1,16 +1,20 @@
 import { dateFormatOptions } from "../../utils/constants";
+import { useMemo } from "react";
 import type { BookingDetails } from "../../types/types";
-
-const fourWeeksAhead = Array.from({ length: 28 }, (_, idx) => {
-  const today = new Date();
-  today.setDate(today.getDate() + idx);
-  return today;
-});
 
 interface SelectDateProps {
   onPick: (data: Partial<BookingDetails>) => void;
 }
 export default function SelectDate({ onPick }: SelectDateProps) {
+  const today = new Date();
+  const fourWeeksAhead = useMemo(
+    () =>
+      Array.from({ length: 28 }, (_, idx) => {
+        today.setDate(today.getDate() + idx);
+        return today;
+      }),
+    [today],
+  );
   return (
     <>
       <label htmlFor="date">Dato: </label>

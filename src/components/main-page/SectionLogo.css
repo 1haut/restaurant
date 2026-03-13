@@ -1,0 +1,38 @@
+/* Logo */
+.page-logo {
+  margin: var(--section-margin) 0;
+}
+.page-logo img {
+  display: block;
+  margin: auto;
+  width: 200px;
+  aspect-ratio: 1;
+}
+
+.page-logo h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.page-logo h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 200;
+  letter-spacing: 5px;
+}
+
+@media screen and (min-width: 576px) {
+  .page-logo img {
+    width: 250px;
+  }
+
+  .page-logo h1 {
+    font-size: 3rem;
+  }
+
+  .page-logo h2 {
+    font-size: 2rem;
+  }
+}

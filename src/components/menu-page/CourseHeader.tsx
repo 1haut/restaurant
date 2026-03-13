@@ -1,4 +1,4 @@
-import ArrowDownIcon from "./ArrowDown";
+import ArrowDown from "./ArrowDown";
 
 interface CourseHeaderProps {
   courseName: string;
@@ -10,7 +10,7 @@ export default function CourseHeader({ courseName }: CourseHeaderProps) {
       <div className="heading-name">
         <h2>{courseName}</h2>
       </div>
-      <ArrowDownIcon height={48} fill="#b22222" />
+      <ArrowDown height={48} fill="#b22222" />
     </div>
   );
 }

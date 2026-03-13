@@ -7,6 +7,7 @@ import Footer from "../components/footer/Footer.tsx";
 import Navbar from "../components/header/Navbar.tsx";
 import Course from "../components/menu-page/Course.tsx";
 import Filter from "../components/menu-page/Filter.tsx";
+import "./Menu.css"
 
 export default function Menu() {
   const [newMenu, setNewMenu] = useState<Menu>(menu);

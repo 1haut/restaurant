@@ -105,20 +105,20 @@ export const reviews: Review[] = [
   {
     id: 1,
     content:
-      "Slike tekster hjelper med å teste flyt, linjebruk og inntrykk. Et design uten tekst føles ofte tomt – dette fyller det rommet. Slike tekster hjelper med å teste flyt linjebruk og inntrykk.",
-    name: "Review 1",
+      "Fantastisk sjømat til en veldig hyggelig pris. Fisken var tydelig fersk og perfekt tilberedt, og smakene var rene og balanserte. Servicen var også veldig hyggelig og uformell. Et sted jeg definitivt kommer tilbake til.",
+    name: "Selma Sundt (selverklært foodie)",
   },
   {
     id: 2,
     content:
-      "Ingen setning her har en klar betydning, men det ser ut som ekte språk. Innholdet skal fylle plass, men ikke distrahere. Vi setter ord på skjermen, men ikke innhold i tankene.",
-    name: "Review 2",
+      "En av de beste sjømatopplevelsene jeg har hatt på lenge. Maten holder høy kvalitet, porsjonene er gode, og prisene er overraskende moderate. Restauranten har en avslappet og koselig atmosfære som gjør det lett å trives.",
+    name: "Ettermiddagsposten",
   },
   {
     id: 3,
     content:
-      "Vi setter ord på skjermen, men ikke innhold i tankene. Ingen setning her har en klar betydning, men det ser ut som ekte språk. Slike tekster hjelper med å teste flyt, linjebruk og inntrykk.",
-    name: "Review 3",
+      "En av de beste sjømatopplevelsene jeg har hatt på lenge. Maten holder høy kvalitet, porsjonene er gode, og prisene er overraskende moderate. Restauranten har en avslappet og koselig atmosfære som gjør det lett å trives.",
+    name: "Odin fra TripMentor",
   },
 ];
 
@@ -303,6 +303,8 @@ export const socialMedia: SocialMedia = {
   },
 };
 
-export const aboutText: string = `Fisk er dyr som lever under vann og puster med gjeller. Huden til de fleste fisk er dekket av små, harde skjell, og de er vekselvarme. Fisk lever enten i ferskvann eller saltvann. Det finnes mer enn 30 000 arter i hele verden.
+export const aboutText: string = `En sjømatrestaurant skal først og fremst levere smaker fra havet som er friske, rene og ekte. Hos oss står kvalitet i sentrum i alt vi gjør. Vi velger råvarer med omhu, samarbeider med pålitelige leverandører og tilbereder maten med respekt for både tradisjon og gode håndverksteknikker. Resultatet er retter der den naturlige smaken av sjømat får stå i fokus – fra saftige fiskefileter til delikate skalldyr.
 
-Fisk er veldig forskjellige i størrelse og utseende. Hvalhai er et eksempel på en stor fisk. Krystall kutling er en liten fisk som blir omtrent fem centimeter.`;
+
+
+Vår filosofi er enkel: ekte råvarer, gode smaker og en opplevelse som føles både kvalitetsrik og tilgjengelig. Vi ønsker å være et sted der gjestene alltid kan stole på at de får fersk sjømat, gode porsjoner og ekte verdi for pengene. Velkommen til oss – vi gleder oss til å servere deg det beste havet har å by på.`;

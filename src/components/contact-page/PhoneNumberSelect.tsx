@@ -32,7 +32,7 @@ export default function PhoneNumberSelect({
     >
       {list.map(item => (
         <option key={item.code} value={item.dial_code}>
-          ({item.dial_code}) {item.name_no}
+          {item.dial_code} {item.name_no}
         </option>
       ))}
     </select>

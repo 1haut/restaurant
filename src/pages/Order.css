@@ -1,0 +1,25 @@
+.header {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-course {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.confirmation-button {
+  display: block;
+  margin: 2rem auto;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 20px 30px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: var(--font-family);
+  border-radius: 8px;
+}

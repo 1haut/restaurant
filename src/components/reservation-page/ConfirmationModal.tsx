@@ -1,14 +1,42 @@
+import { useEffect, useRef, useState } from "react";
+import { type BookingDetails } from "../../types/types";
+import ClickableButton from "../custom/ClickableButton";
+
 interface ConfirmationModalProps {
   stateModal: boolean;
+  bookingDetails: BookingDetails;
   toggleModal: (toggle: boolean) => void;
 }
 
 export default function ConfirmationModal({
   stateModal,
+  bookingDetails,
   toggleModal,
 }: ConfirmationModalProps) {
+  const initialState: { date: string; time: number[] } = {
+    date: "",
+    time: [],
+  };
+
+  const [jsonData, setJsonData] = useState(initialState);
+  const modalRef = useRef<HTMLButtonElement>(null);
+
   function handleConfirm() {
-    alert("ORDER COMPLETE!");
+    const formattedTime = Number(bookingDetails.time.split(":")[0]);
+
+    const jsonPost = {
+      date: bookingDetails.date
+        .toLocaleDateString("en-GB")
+        .replaceAll("/", "-"),
+      time:
+        bookingDetails.duration === 60
+          ? [formattedTime]
+          : [formattedTime, formattedTime + 1],
+      table: bookingDetails.table,
+    };
+
+    setJsonData(jsonPost);
+    toggleModal(false);
   }
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLButtonElement>) {
@@ -21,19 +49,46 @@ export default function ConfirmationModal({
     }
   }
 
+  const fetchUrl = "/save-booking";
+  const fetchOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(jsonData),
+  };
+
+  useEffect(() => {
+    if (modalRef.current && stateModal) {
+      modalRef.current.focus();
+    }
+  }, [stateModal]);
+
+  useEffect(() => {
+    // No API call on inital render
+    console.log(initialState);
+    if (jsonData.date === initialState.date) {
+      return;
+    }
+
+    fetch(fetchUrl, fetchOptions)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  }, [jsonData]);
+
   return (
     <>
       <div
         className="modal-container"
         style={{ display: stateModal ? "flex" : "none" }}
       >
-        <div className="modal">
+        <div className="modal" id="confirmation-modal">
           <div className="modal-header">
             <button
               type="button"
               className="btn-close"
               onClick={() => toggleModal(false)}
               onKeyDown={handleKeyDown}
+              ref={modalRef}
             >
               X
             </button>
@@ -42,22 +97,22 @@ export default function ConfirmationModal({
             Er du sikker på at du har lyst til å bestille?
           </div>
           <div className="modal-footer">
-            <button
+            <ClickableButton
               type="button"
               className="modal-button close"
+              ariaLabel="Avbryt bordbestilling"
               onClick={() => toggleModal(false)}
-              onKeyDown={handleKeyDown}
             >
               Avbryt
-            </button>
-            <button
+            </ClickableButton>
+            <ClickableButton
               type="submit"
               className="modal-button submit"
+              ariaLabel="Bekreftelse av bordbestilling"
               onClick={handleConfirm}
-              onKeyDown={handleKeyDown}
             >
               OK!
-            </button>
+            </ClickableButton>
           </div>
         </div>
       </div>

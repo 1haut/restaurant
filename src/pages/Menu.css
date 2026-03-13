@@ -1,0 +1,110 @@
+/* Menu Section */
+.course-container {
+  margin: 1rem;
+  padding: var(--menu-padding);
+  background-color: var(--light-gray);
+  color: var(--color4);
+  border-radius: 4px;
+}
+
+.course-container:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.heading-course,
+.menu-course {
+  background-color: var(--light-gray);
+}
+
+.heading-course {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 5px var(--color4);
+  border-style: double double none double;
+}
+
+.heading-course h2 {
+  font-size: 2rem;
+  padding-left: 0.75rem;
+}
+
+.heading-course .icon {
+  height: 48px;
+  aspect-ratio: 1;
+}
+
+.heading-name {
+  display: flex;
+}
+
+.heading-name svg {
+  display: block;
+  margin: auto;
+  fill: var(--color4);
+}
+
+.menu-course {
+  font-size: 1rem;
+  overflow-y: auto;
+  text-align: left;
+  /* padding: 0 1.5rem; breakpoint*/
+  padding: 0 1rem;
+  border: 5px var(--color4);
+  border-style: none double double double;
+}
+
+.dish-container {
+  margin: 1rem 0;
+  border-bottom: 1px solid var(--dark-gray);
+  padding-bottom: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: calc(left + 10px);
+  background-size: 100px;
+}
+
+.dish {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dish-container:last-child {
+  border-bottom: none;
+}
+
+.starters .dish-container {
+  background-image: url("./assets/icons/entree-placeholder.svg");
+  background-size: 100px;
+}
+
+.mains .dish-container {
+  background-image: url("./assets//icons/main-dish-placeholder3.svg");
+}
+.desserts .dish-container {
+  background-image: url("./assets//icons/dessert-placeholder.svg");
+}
+
+.dish-top {
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dish-price {
+  padding-left: 0.5rem;
+}
+
+.dish-description {
+  font-style: italic;
+  margin: 0.25rem 5rem 0.5rem 0;
+}
+
+.dish-allergies {
+  font-size: 0.75rem;
+}
+
+.multi-select {
+  margin: 1rem;
+}
