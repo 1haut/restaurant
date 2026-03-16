@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "proxy": "http://localhost:5151",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.0",
+    "redis": "^5.11.0",
+    "stripe": "^20.4.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6"
+  }
+}

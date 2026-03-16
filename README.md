@@ -5,6 +5,9 @@ Webpage for a seafood restaurant built with React + TypeScript
 - React
 - Vite
 - TypeScript
+- node.js
+- Redis
+- Stripe
 - CSS
 
 ## Installation
@@ -24,13 +27,27 @@ npm install
 
 ## Development
 
-Start the development server:
+Start the React development server:
+
+- Navigate to the `/frontend` folder
+- Start the development server
 
 ```bash
 npm run dev
 ```
 
 The app will run at `http://localhost:5173`.
+
+Start the backend server:
+
+- Navigate to the `/backend` folder
+- Start the server
+
+```bash
+node backend/app.ts
+```
+
+The app will run at `http://localhost:5151`.
 
 ## Build
 
@@ -48,5 +65,4 @@ npm run preview
 
 ## Author
 
-Your Name  
 https://github.com/1haut
