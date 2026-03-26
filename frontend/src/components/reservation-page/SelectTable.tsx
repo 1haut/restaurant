@@ -8,28 +8,15 @@ interface SelectTableProps {
 }
 
 export default function SelectTable({ people, onPick }: SelectTableProps) {
-  const [selectedTable, setSelectedTable] = useState("");
-
-  function handleClick(newTable: string): void {
-    if (newTable === selectedTable) {
-      onPick({ table: "" });
-      setSelectedTable("");
-    } else {
-      onPick({ table: newTable });
-      setSelectedTable(newTable);
-    }
-  }
-
   const initialTableState: Table = {
     label: "",
     location: "",
     maxSeats: 1,
   };
-
   const [tabl, setTabl] = useState<Table>(initialTableState);
 
-  function handleClick2(t: Table) {
-    if (t.label === selectedTable) {
+  function handleClick(t: Table) {
+    if (t.label === tabl.label) {
       onPick({ table: "" });
       setTabl(initialTableState);
     } else {
@@ -48,14 +35,13 @@ export default function SelectTable({ people, onPick }: SelectTableProps) {
     <div className="table-container">
       {tables.map(tableItem => (
         <div
-          tabIndex={0}
           key={tableItem.label}
           className={`table ${tableItem.location}`}
         >
           <button
-            className={`selection-area ${tableItem.label.toLowerCase()} ${selectedTable === tableItem.label ? "selected-table" : ""} `}
+            className={`selection-area ${tableItem.label.toLowerCase()} ${tabl.label === tableItem.label ? "selected-table" : ""} `}
             onClick={() => {
-              (handleClick(tableItem.label), handleClick2(tableItem));
+              handleClick(tableItem);
             }}
           ></button>
         </div>

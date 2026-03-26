@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { type BookingDetails } from "../../types/types";
 import { dateFormatOptions } from "../../utils/constants";
-import ClickableButton from "../custom/ClickableButton";
+import ClickableButton from "../common/ClickableButton";
 
 interface ConfirmationModalProps {
   stateModal: boolean;
