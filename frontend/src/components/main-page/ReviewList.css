@@ -14,7 +14,7 @@
 }
 
 .reviews article {
-  border: 8px solid var(--color2);
+  border: 2px solid var(--color2);
   border-radius: 20px;
   margin: 1.5rem;
   padding: 2rem 40px 1rem;

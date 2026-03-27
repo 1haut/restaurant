@@ -7,7 +7,7 @@
 }
 
 .booking-options > * {
-  border: 5px solid var(--dark-gray);
+  border: 2px solid var(--color2);
   border-radius: 16px;
   padding: 3rem;
   margin: 1rem;
@@ -16,7 +16,7 @@
 
 .booking-options select {
   padding: 0.75rem 1.5rem;
-  border-width: 0.25rem;
+  border-width: 2px;
   border-radius: 12px;
   background-color: var(--color1);
   color: var(--color2);
@@ -94,13 +94,13 @@ form.duration {
 button.confirm-booking {
   background-color: var(--color2);
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   border-radius: 4px;
   font-family: var(--font-family);
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: var(--dark-gray);
   display: block;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 button.confirm-booking:hover {

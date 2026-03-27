@@ -16,6 +16,15 @@ footer {
   font-size: 1rem;
 }
 
+
+.footer-info-container a {
+  transition: text-decoration 1s ease-in-out;
+}
+
+.footer-info-container a:hover {
+  text-decoration: underline;
+}
+
 .socials-container {
   display: flex;
   justify-content: center;
@@ -37,6 +46,22 @@ footer {
 }
 
 .links-list li {
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-info-container {
+    padding: 0 1rem;
+    border-left: he
+  }
+
+  .info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .info div {
+    flex: 1;
+  }
 }

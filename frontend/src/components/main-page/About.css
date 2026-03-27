@@ -13,6 +13,10 @@
   margin-bottom: 1rem;
 }
 
+.about p {
+  padding: 1rem;
+}
+
 .desc img {
   width: 160px;
 }
@@ -27,7 +31,7 @@
 
 @media screen and (min-width: 576px) {
   .desc {
-    height: 350px;
+    height: 100%;
     display: grid;
     grid-template-columns: 4fr 1fr;
     align-items: center;

@@ -10,16 +10,23 @@
 }
 
 .nudge-action p {
-  margin: 1.5rem;
+  margin: 1.6rem;
 }
 
 .nudge-action a {
   background-color: var(--color4);
   color: var(--color3);
-  border: none;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  border: 4px solid var(--color2);
+  border: var(--border);
   border-radius: 1rem;
+}
+
+.nudge-action a:hover {
+  transition: background-color 0.3s ease-in-out;
+  transform: scale(1.05);
+  background-color: var(--color3);
+  color: var(--color4);
+  animation: none;
 }
