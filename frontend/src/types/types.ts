@@ -78,3 +78,13 @@ export interface CountryCode {
   dial_code: string;
   name_no: string;
 }
+
+export interface ContactFormInformation {
+  id: string;
+  name: string;
+  email: string;
+  countryCode: string;
+  phoneNumber: string;
+  category: string;
+  textContent: string;
+}
