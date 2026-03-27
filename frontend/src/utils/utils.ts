@@ -17,7 +17,7 @@ export function toKebabCase(str: string): string {
 
 export function weekdayIndexMondayBased(date: Date): number {
   const weekdayIndex = date.getDay();
-  return weekdayIndex + 6 + 7;
+  return (weekdayIndex + 6) % 7;
 }
 
 export function range(start: number, stop: number): number[] {

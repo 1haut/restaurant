@@ -311,3 +311,23 @@ export const socialMedia: SocialMedia = {
 export const aboutText: string = `En sjømatrestaurant skal først og fremst levere smaker fra havet som er friske, rene og ekte. Hos oss står kvalitet i sentrum i alt vi gjør. Vi velger råvarer med omhu, samarbeider med pålitelige leverandører og tilbereder maten med respekt for både tradisjon og gode håndverksteknikker. Resultatet er retter der den naturlige smaken av sjømat får stå i fokus – fra saftige fiskefileter til delikate skalldyr.
 
 Vår filosofi er enkel: ekte råvarer, gode smaker og en opplevelse som føles både kvalitetsrik og tilgjengelig. Vi ønsker å være et sted der gjestene alltid kan stole på at de får fersk sjømat, gode porsjoner og ekte verdi for pengene. Velkommen til oss – vi gleder oss til å servere deg det beste havet har å by på.`;
+
+
+export const linksArray = [
+  {
+    value: "policy",
+    href: "#",
+  },
+  {
+    value: "katering",
+    href: "#",
+  },
+  {
+    value: "reservering",
+    href: "#",
+  },
+  {
+    value: "kredittering",
+    href: "#",
+  },
+];
