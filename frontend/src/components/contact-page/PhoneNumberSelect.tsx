@@ -1,21 +1,12 @@
 import type { ChangeEvent } from "react";
-
-interface CountryCodeFormat {
-  name: string;
-  code: string;
-  emoji: string;
-  unicode: string;
-  image: string;
-  dial_code: string;
-  name_no: string;
-}
+import type { CountryCode } from "../../types/types";
 
 interface OptionsSelectProps {
   name: string;
   countryCode: string;
+  list: CountryCode[];
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  list: CountryCodeFormat[];
-};
+}
 
 export default function PhoneNumberSelect({
   name,

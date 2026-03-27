@@ -4,6 +4,7 @@ import Input from "./Input";
 import MessageField from "./MessageField";
 import PhoneField from "./PhoneField";
 import "./ContactForm.css";
+import CategorySelect from "./CategorySelect";
 
 export default function ContactForm() {
   const initialState = {
@@ -16,9 +17,9 @@ export default function ContactForm() {
     textContent: "",
   };
 
-  const navigate = useNavigate();
   const [isSent, setSent] = useState(false);
   const [formInformation, setFormInformation] = useState(initialState);
+  const navigate = useNavigate();
 
   // Error validation
   const error = {
@@ -66,6 +67,7 @@ export default function ContactForm() {
     console.log(JSON.stringify(formInformation, null, " "));
   }
 
+  // Redirect home
   useEffect(() => {
     if (!isSent) return;
     const timeoutNavigate = setTimeout(() => {
@@ -112,21 +114,10 @@ export default function ContactForm() {
             onChange={handleChange}
             autoComplete="tel"
           />
-          <div className="input-field category-field">
-            <label htmlFor="select-category">Emne</label>
-            <select
-              name="category"
-              id="select-category"
-              value={formInformation.category}
-              onChange={handleChange}
-              autoComplete="off"
-            >
-              <option value="">---Velg emne:---</option>
-              <option value="request">Forespørsel</option>
-              <option value="contact">Kontakt</option>
-              <option value="catering">Catering</option>
-            </select>
-          </div>
+          <CategorySelect
+            onChange={handleChange}
+            categoryValue={formInformation.category}
+          />
           <MessageField
             name="textContent"
             labelName="Melding*"

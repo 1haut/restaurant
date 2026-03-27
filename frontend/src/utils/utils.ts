@@ -54,4 +54,3 @@ export function filterAllergies(menu: Menu, allergies: readonly StateOption[]) {
 
   return result;
 }
-

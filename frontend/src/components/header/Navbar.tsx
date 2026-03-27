@@ -30,7 +30,7 @@ export default function Navbar() {
           className="hamburger-menu"
           tabIndex={0}
           role="button"
-          alt={isExpanded ? "Icon of close sign." : "Icon of hamburger menu."}
+          alt={isExpanded ? "Icon av lukknapp." : "Ikon av hamburgermeny."}
           aria-expanded={isExpanded}
           aria-haspopup="true"
           aria-controls="dropdown-nav"

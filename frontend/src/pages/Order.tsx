@@ -88,7 +88,7 @@ export default function Order() {
           setOrderConfirmed(true);
         }}
       >
-        Gå til betaling!
+        Kjøp nå!
       </button>
       <hr />
       <Footer />
