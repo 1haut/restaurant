@@ -5,10 +5,11 @@ Webpage for a seafood restaurant built with React + TypeScript
 - React
 - Vite
 - TypeScript
+- CSS
 - node.js
+- React Router
 - Redis
 - Stripe
-- CSS
 
 ## Installation
 
@@ -56,13 +57,3 @@ Create a production build:
 ```bash
 npm run build
 ```
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Author
-
-https://github.com/1haut

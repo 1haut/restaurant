@@ -7,7 +7,8 @@ import Stripe from "stripe";
 
 const port = 5151;
 const app = express();
-type OrderType = { name: string; amount: number; price: number }
+
+type OrderType = { name: string; amount: number; price: number };
 
 if (!process.env.STRIPE_SK) {
   throw new Error("Your stripe API key is not set");
@@ -56,7 +57,7 @@ app.get("/get-data/date/:date", async (req: Request, res: Response) => {
 
 app.post("/save-booking", async (req: Request, res: Response) => {
   try {
-    const { date, time, } = req.body;
+    const { date, time } = req.body;
     const response = await client.HGET("booking", date);
 
     if (typeof response === "string") {
@@ -113,15 +114,15 @@ app.post("/checkout", async (req: Request, res: Response) => {
         currency: "nok",
         unit_amount: item.amount * item.price * 100,
         product_data: {
-          name: item.name
-        }
-      }
-    }))
+          name: item.name,
+        },
+      },
+    }));
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
-      success_url: "http://localhost:5173/"
+      success_url: "http://localhost:5173/",
     });
 
     if (!session.url) {
@@ -130,9 +131,9 @@ app.post("/checkout", async (req: Request, res: Response) => {
         .json({ error: "Failed to create checkout session" });
     }
 
-    res.status(200).json({url: session.url})
+    res.status(200).json({ url: session.url });
   } catch (err) {
-    console.error(err);
+    res.status(500).json({ error: err });
   }
 });
 
