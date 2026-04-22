@@ -46,9 +46,9 @@ export default function OrderItem({
         {name}, <i>{price} kr</i>
       </h5>
       <div className="counter-container">
-        <button onClick={handleIncrement}>+</button>
+        <button onClick={handleIncrement} className="increment">+</button>
         <p>{amount}</p>
-        <button onClick={handleDecrement}>-</button>
+        <button onClick={handleDecrement} className="decrement">-</button>
       </div>
     </div>
   );

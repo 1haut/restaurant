@@ -20,22 +20,27 @@
 
 .order-item p {
   display: inline-block;
-  margin: 0 0.5rem;
-  font-size: 16px;
+  margin: 0.5rem 0.5rem 0;
+  font-size: 1.5rem;
 }
 
 .counter-container button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color1);
+  color: var(--color2);
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 16px;
   border-radius: 50%;
+  border: 2px solid var(--color2);
 }
 
-.counter-container button:hover {
-  background-color: #0056b3;
+.counter-container button.increment:hover {
+  color: #83f28f;
+}
+
+.counter-container button.decrement:hover {
+  color: red;
 }
 
 @media screen and (max-width: 600px) {
