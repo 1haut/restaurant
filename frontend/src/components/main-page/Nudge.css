@@ -1,3 +1,6 @@
+.nudge {
+  margin: 2rem 0;
+}
 .nudge h2 {
   text-align: center;
   margin: 2rem 0;
@@ -14,8 +17,8 @@
 }
 
 .nudge-action a {
-  background-color: var(--color4);
-  color: var(--color3);
+  background-color: var(--color1);
+  color: var(--color2);
   padding: 0.75rem 1.5rem;
   font-size: 1.5rem;
   cursor: pointer;
