@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { BookingDetails, Table } from "../../types/types";
 import { tables } from "../../utils/constants";
+import type { BookingDetails, Table } from "../../types/types";
 
 interface SelectTableProps {
   people: number;
@@ -15,7 +15,10 @@ export default function SelectTable({ people, onPick }: SelectTableProps) {
   };
   const [tabl, setTabl] = useState<Table>(initialTableState);
 
-  function handleClick(t: Table) {
+  function handleClick(t: Table, isTableAvailable: boolean) {
+    if (!isTableAvailable) {
+      return;
+    }
     if (t.label === tabl.label) {
       onPick({ table: "" });
       setTabl(initialTableState);
@@ -34,14 +37,11 @@ export default function SelectTable({ people, onPick }: SelectTableProps) {
   return (
     <div className="table-container">
       {tables.map(tableItem => (
-        <div
-          key={tableItem.label}
-          className={`table ${tableItem.location}`}
-        >
+        <div key={tableItem.label} className={`table ${tableItem.location}`}>
           <button
-            className={`selection-area ${tableItem.label.toLowerCase()} ${tabl.label === tableItem.label ? "selected-table" : ""} `}
+            className={`${people > tableItem.maxSeats ? "table-not-allowed" : "selection-area"} ${tableItem.label.toLowerCase()} ${tabl.label === tableItem.label ? "selected-table" : ""} `}
             onClick={() => {
-              handleClick(tableItem);
+              handleClick(tableItem, !(people > tableItem.maxSeats));
             }}
           ></button>
         </div>

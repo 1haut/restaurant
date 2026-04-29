@@ -18,6 +18,7 @@
   --section-margin: 2rem;
   --gutter: 16px;
   --menu-padding: 0.5rem;
+  --font-weight-light: 200;
 }
 
 body {
@@ -83,6 +84,15 @@ select:focus,
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

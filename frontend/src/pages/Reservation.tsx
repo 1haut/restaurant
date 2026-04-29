@@ -34,13 +34,18 @@ export default function Reservation() {
       />
       <Navbar />
       <main className="reservation">
+        <h1>Bestill bord</h1>
         <ReservationOptions
           handleChoice={handleChoice}
           bookingDetails={bookingDetails}
         />
       </main>
       <button
-        disabled={weekdayIndexMondayBased(bookingDetails.date) === 6}
+        disabled={
+          weekdayIndexMondayBased(bookingDetails.date) === 6 &&
+          !!bookingDetails.time &&
+          !!bookingDetails.table
+        }
         type="submit"
         className="confirm-booking"
         onClick={() => setConfModal(true)}

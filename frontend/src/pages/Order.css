@@ -2,6 +2,7 @@
   display: block;
   text-align: center;
   margin-bottom: 20px;
+  font-weight: var(--font-weight-light);
 }
 
 .order-course {
@@ -15,10 +16,11 @@
 .total-sum {
   margin: 2rem 20px 0 0;
   text-align: right;
+  font-weight: var(--font-weight-light);
 }
 
 .total-sum span {
-  padding: 0.5rem
+  padding: 0.5rem;
 }
 
 .confirmation-button {
@@ -37,12 +39,22 @@
 .confirmation-button:hover {
   background-color: var(--color2);
   color: var(--color1);
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 576px) {
   .total-sum {
     margin: 2rem 0 0 2rem;
     text-align: left;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .total-sum {
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin: 3rem auto 1rem auto;
   }
 }

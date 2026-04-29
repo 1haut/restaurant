@@ -5,6 +5,7 @@ import ReviewList from "../components/main-page/ReviewList.tsx";
 import SectionLogo from "../components/main-page/SectionLogo.tsx";
 import Carousel from "../components/main-page/Carousel.tsx";
 import Nudge from "../components/main-page/Nudge.tsx";
+import "./Main.css"
 
 export default function Main() {
   return (

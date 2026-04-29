@@ -45,3 +45,5 @@ frontend/naso/
 frontend/src/routes.tsx
 frontend/src/TestBtn.tsx
 frontend/noend/
+frontend/src/pages/Contact2.tsx
+frontend/src/components/contact-page/ContactForm2.tsx

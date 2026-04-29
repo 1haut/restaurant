@@ -13,7 +13,8 @@
 }
 
 h3.socials-header-contact {
-  margin-top: 3rem;
+  margin: 1rem 0;
+  font-weight: var(--font-weight-light);
 }
 
 .contact-form label {
@@ -45,10 +46,11 @@ h3.socials-header-contact {
 }
 
 .contact-form button {
-  background-color: var(--color2);
+  background-color: var(--color1);
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 0.25rem;
+  border: var(--border);
   font-family: var(--font-family);
   font-size: 1rem;
 }
@@ -61,7 +63,7 @@ h3.socials-header-contact {
 
 .contact-form button:not(:disabled) {
   cursor: pointer;
-  color: var(--dark-gray);
+  color: var(--color2);
 }
 
 .contact-form button:hover:not(:disabled) {
@@ -115,6 +117,42 @@ h3.socials-header-contact {
 .error-message svg {
   vertical-align: middle;
 }
+
+/* Redirect */
+.redirect-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  margin: 2rem 1rem;
+  overflow: hidden;
+}
+
+h2.redirect-inner {
+  font-weight: var(--font-weight-light);
+  text-align: center;
+  background-color: var(--color1);
+  z-index: 1;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 5px;  
+}
+
+.redirect-container::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10vw;
+  height: 100vw;
+  background: linear-gradient(var(--color1), var(--color2));
+  animation: rotate 2s linear infinite;
+  transform-origin: top center;
+  top: 50%;
+  z-index: 0;
+}
+
 
 @media screen and (max-width: 576px) {
   .tel-input-container select {

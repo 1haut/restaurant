@@ -1,0 +1,16 @@
+.h1-contact {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: var(--font-weight-light);
+}
+
+main {
+    padding: 2rem 0
+}
+
+.socials-header {
+    margin-bottom: 1rem;
+}
+.socials-header img {
+    width: 3rem;
+}

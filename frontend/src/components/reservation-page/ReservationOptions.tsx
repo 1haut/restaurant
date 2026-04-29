@@ -24,7 +24,7 @@ export default function ReservationOptions({
           <SelectDuration onPick={handleChoice} />
         </div>
         <div className="booking-table">
-          <SelectTable onPick={handleChoice} people={bookingDetails.people}/>
+          <SelectTable onPick={handleChoice} people={bookingDetails.people} />
         </div>
       </div>
     </>

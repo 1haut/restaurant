@@ -131,6 +131,8 @@ app.post("/checkout", async (req: Request, res: Response) => {
         .json({ error: "Failed to create checkout session" });
     }
 
+    console.log(session.amount_total);
+
     res.status(200).json({ url: session.url });
   } catch (err) {
     res.status(500).json({ error: err });

@@ -1,12 +1,16 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate } from "react-router";
 import Input from "./Input";
 import MessageField from "./MessageField";
 import PhoneField from "./PhoneField";
 import "./ContactForm.css";
 import CategorySelect from "./CategorySelect";
+import SocialMediaReminder from "./SocialMediaReminder";
 
-export default function ContactForm() {
+interface ContFormProps {
+  toggleSend: () => void;
+}
+
+export default function ContactForm({ toggleSend }: ContFormProps) {
   const initialState = {
     id: "",
     name: "",
@@ -17,9 +21,7 @@ export default function ContactForm() {
     textContent: "",
   };
 
-  const [isSent, setSent] = useState(false);
   const [formInformation, setFormInformation] = useState(initialState);
-  const navigate = useNavigate();
 
   // Error validation
   const error = {
@@ -56,7 +58,7 @@ export default function ContactForm() {
     event?.preventDefault();
     logInputs();
     resetFields();
-    setSent(!isSent);
+    toggleSend();
   }
 
   function resetFields() {
@@ -67,68 +69,54 @@ export default function ContactForm() {
     console.log(JSON.stringify(formInformation, null, " "));
   }
 
-  // Redirect home
-  useEffect(() => {
-    if (!isSent) return;
-    const timeoutNavigate = setTimeout(() => {
-      navigate("/", { replace: true });
-    }, 1000);
-
-    return () => clearTimeout(timeoutNavigate);
-  }, [isSent]);
-
   return (
     <>
-      {isSent ? (
-        <h1 style={{ display: "block", margin: "auto" }}>
-          Sendt! Omdirigerer til forsiden...
-        </h1>
-      ) : (
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            name="name"
-            label="Navn*"
-            value={formInformation.name}
-            onChange={handleChange}
-            autoComplete="name"
-            hasError={Boolean(error.name)}
-            errorMessage={error.name}
-          />
-          <Input
-            type="email"
-            name="email"
-            label="Epost*"
-            value={formInformation.email}
-            onChange={handleChange}
-            autoComplete="email"
-            hasError={Boolean(error.email)}
-            errorMessage={error.email}
-          />
-          <PhoneField
-            labelContent="Telefonnummer"
-            name="countryCode"
-            inputBoxName="phoneNumber"
-            countryCode={formInformation.countryCode}
-            phoneNumber={formInformation.phoneNumber}
-            onChange={handleChange}
-            autoComplete="tel"
-          />
-          <CategorySelect
-            onChange={handleChange}
-            categoryValue={formInformation.category}
-          />
-          <MessageField
-            name="textContent"
-            labelName="Melding*"
-            value={formInformation.textContent}
-            onChange={handleChange}
-            hasError={Boolean(error.content)}
-            errorMessage={error.content}
-          />
-          <button disabled={!isValid}>Send!</button>
-        </form>
-      )}
+      <h1 className="h1-contact">Ta kontakt</h1>
+      <SocialMediaReminder />
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="name"
+          label="Navn*"
+          value={formInformation.name}
+          onChange={handleChange}
+          autoComplete="name"
+          hasError={Boolean(error.name)}
+          errorMessage={error.name}
+        />
+        <Input
+          type="email"
+          name="email"
+          label="Epost*"
+          value={formInformation.email}
+          onChange={handleChange}
+          autoComplete="email"
+          hasError={Boolean(error.email)}
+          errorMessage={error.email}
+        />
+        <PhoneField
+          labelContent="Telefonnummer"
+          name="countryCode"
+          inputBoxName="phoneNumber"
+          countryCode={formInformation.countryCode}
+          phoneNumber={formInformation.phoneNumber}
+          onChange={handleChange}
+          autoComplete="tel"
+        />
+        <CategorySelect
+          onChange={handleChange}
+          categoryValue={formInformation.category}
+        />
+        <MessageField
+          name="textContent"
+          labelName="Melding*"
+          value={formInformation.textContent}
+          onChange={handleChange}
+          hasError={Boolean(error.content)}
+          errorMessage={error.content}
+        />
+        <button>Send!</button>
+      </form>
     </>
   );
 }

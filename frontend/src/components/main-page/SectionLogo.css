@@ -13,6 +13,7 @@
   font-size: 2rem;
   text-align: center;
   margin-top: 2rem;
+  font-weight: var(--font-weight-light);
 }
 
 .page-logo h2 {

@@ -103,15 +103,19 @@
   font-size: 0.75rem;
 }
 
-.multi-select,
+.multi-select {
+  margin: auto;
+  width: min(calc(100vw - 3rem), 400px);
+  color: var(--color4);
+}
+
 .course-container {
   margin: 1rem 3rem;
   transition: margin 0.5s ease;
 }
 
 @media screen and (max-width: 768px) {
-  .course-container,
-  .multi-select {
+  .course-container {
     margin: 1rem;
   }
 

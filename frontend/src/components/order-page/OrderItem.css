@@ -16,6 +16,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  font-weight: var(--font-weight-light);
 }
 
 .order-item p {
@@ -51,5 +52,17 @@
   }
   .counter-container {
     margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .order-item {
+    border: var(--border);
+    border-radius: 1rem;
+    margin: 1rem auto;
+  }
+
+  .first-order-item {
+    border-top: none;
   }
 }

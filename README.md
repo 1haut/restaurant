@@ -49,11 +49,3 @@ node backend/app.ts
 ```
 
 The app will run at `http://localhost:5151`.
-
-## Build
-
-Create a production build:
-
-```bash
-npm run build
-```

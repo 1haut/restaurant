@@ -22,6 +22,7 @@ export default function ConfirmationModal({
 
   const [jsonData, setJsonData] = useState(initialState);
   const modalRef = useRef<HTMLButtonElement>(null);
+  const tempServerAddress = "http://localhost:5151"
 
   function handleConfirm() {
     const formattedTime = Number(bookingDetails.time.split(":")[0]);
@@ -70,17 +71,21 @@ export default function ConfirmationModal({
       return;
     }
 
-    fetch(fetchUrl, fetchOptions)
+    fetch(tempServerAddress + fetchUrl, fetchOptions)
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error(error));
   }, [jsonData]);
 
+  useEffect(() => {
+
+  })
+
   return (
     <>
       <div
         className="modal-container"
-        style={{ display: stateModal ? "flex" : "none" }}
+        style={{ display: stateModal ? "flex" : "none", transition: "display 0.3s ease"}}
       >
         <div className="modal" id="confirmation-modal">
           <div className="modal-header">
@@ -91,18 +96,33 @@ export default function ConfirmationModal({
               onKeyDown={handleKeyDown}
               ref={modalRef}
             >
-              X
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e3e3e3"
+              >
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+              </svg>
             </button>
           </div>
-          <div>
-            Du har bestilt bord for {bookingDetails.people} personer, den.{" "}
-            {bookingDetails.date.toLocaleDateString("no-NO", dateFormatOptions)}{" "}
-            fra kl. {bookingDetails.time} til{" "}
-            {Number(bookingDetails.time.split(":")[0]) +
-              bookingDetails.duration / 60}
-          </div>
           <div className="modal-body">
-            Er du sikker på at du har lyst til å bestille?
+            <p className="modal-info">
+              Du har bestilt bord for {bookingDetails.people} person
+              {bookingDetails.people > 1 ? "er" : ""},{" "}
+              {bookingDetails.date.toLocaleDateString(
+                "no-NO",
+                dateFormatOptions,
+              )}{" "}
+              fra kl. {bookingDetails.time.split(":")[0]} til kl.{" "}
+              {Number(bookingDetails.time.split(":")[0]) +
+                bookingDetails.duration / 60}
+              .
+            </p>
+            <p className="modal-question">
+              Er du sikker på at du har lyst til å bestille bord?
+            </p>
           </div>
           <div className="modal-footer">
             <ClickableButton
