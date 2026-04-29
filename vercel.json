@@ -6,7 +6,7 @@
       "framework": "vite"
     },
     "backend": {
-      "entrypoint": "backend",
+      "entrypoint": "backend/app.ts",
       "routePrefix": "/_/backend"
     }
   }
