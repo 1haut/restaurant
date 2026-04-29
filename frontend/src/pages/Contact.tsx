@@ -4,7 +4,7 @@ import Form from "../components/contact-page/ContactForm";
 import Navbar from "../components/header/Navbar";
 import Footer from "../components/footer/Footer";
 
-export default function Combo() {
+export default function Contact() {
   const [isSent, setSend] = useState(false);
 
   function toggleSend() {

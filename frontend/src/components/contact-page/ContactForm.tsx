@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import Input from "./Input";
 import MessageField from "./MessageField";
 import PhoneField from "./PhoneField";
@@ -6,11 +6,11 @@ import "./ContactForm.css";
 import CategorySelect from "./CategorySelect";
 import SocialMediaReminder from "./SocialMediaReminder";
 
-interface ContFormProps {
+interface ContactFormProps {
   toggleSend: () => void;
 }
 
-export default function ContactForm({ toggleSend }: ContFormProps) {
+export default function ContactForm({ toggleSend }: ContactFormProps) {
   const initialState = {
     id: "",
     name: "",
@@ -115,7 +115,7 @@ export default function ContactForm({ toggleSend }: ContFormProps) {
           hasError={Boolean(error.content)}
           errorMessage={error.content}
         />
-        <button>Send!</button>
+        <button disabled={isValid}>Send!</button>
       </form>
     </>
   );

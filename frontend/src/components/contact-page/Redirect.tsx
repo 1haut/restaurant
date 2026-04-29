@@ -13,7 +13,7 @@ export default function Redirect({ isSent }: RedirectProps) {
     if (!isSent) return;
     const timeoutNavigate = setTimeout(() => {
       navigate("/", { replace: true });
-    }, 10000);
+    }, 1000);
 
     return () => clearTimeout(timeoutNavigate);
   }, [isSent]);
