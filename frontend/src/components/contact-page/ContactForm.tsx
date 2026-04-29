@@ -115,7 +115,7 @@ export default function ContactForm({ toggleSend }: ContactFormProps) {
           hasError={Boolean(error.content)}
           errorMessage={error.content}
         />
-        <button disabled={isValid}>Send!</button>
+        <button disabled={!isValid}>Send!</button>
       </form>
     </>
   );
